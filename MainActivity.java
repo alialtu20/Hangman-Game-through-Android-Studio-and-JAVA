@@ -24,22 +24,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         ses1= MediaPlayer.create(MainActivity.this,R.raw.s1);
-         b1= findViewById(R.id.b1);
-         t1= findViewById(R.id.t1);
-         im1= findViewById(R.id.im1);
-         b8=findViewById(R.id.b8);
-         ses1.start();
+        ses1= MediaPlayer.create(MainActivity.this,R.raw.s1);
+        b1= findViewById(R.id.b1);
+        t1= findViewById(R.id.t1);
+        im1= findViewById(R.id.im1);
+        b8=findViewById(R.id.b8);
+        ses1.start();
 
-         // oyuna başla butonuna basıldığında
-         b1.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 Intent sayfa2 = new Intent(MainActivity.this,Activity2.class);
-                 ses1.pause();
-                 startActivity(sayfa2);
+        // oyuna başla butonuna basıldığında
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sayfa2 = new Intent(MainActivity.this,Activity2.class);
+                ses1.pause();
+                startActivity(sayfa2);
              }
          });
+        
          //Oyundan çık butonuna basıldığında uygulamayı kapat
          b8.setOnClickListener(new View.OnClickListener() {
              @Override
