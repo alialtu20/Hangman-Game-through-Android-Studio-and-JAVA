@@ -17,6 +17,7 @@ public class Activity3 extends AppCompatActivity {
     TextView t7,t9,t10;
     ImageView im3;
     int sonuc;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,6 @@ public class Activity3 extends AppCompatActivity {
             t7.setText("Malesef rehineyi kurtaramadın .. :/");
             im3.setImageResource(R.drawable.e);
             ses3.start();
-
         }
         // doğru tahminde olacaklar
         if(sonuc.equals("1")) {
@@ -61,19 +61,17 @@ public class Activity3 extends AppCompatActivity {
               ses4.pause();
             startActivity(anamenu);
           }
-      });
-       // ana menüye dön butonu ile gerçekleşecekler
-      b5.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-              Intent sayfa2= new Intent(Activity3.this,MainActivity.class);
-              ses3.pause();
-              ses4.pause();
-              startActivity(sayfa2);
-          }
-      });
-
-
+        });
+        
+        // ana menüye dön butonu ile gerçekleşecekler
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sayfa2= new Intent(Activity3.this,MainActivity.class);
+                ses3.pause();
+                ses4.pause();
+                startActivity(sayfa2);
+            }
+        });
     }
-
 }
