@@ -34,7 +34,7 @@ public class Activity2 extends AppCompatActivity  {
     int []tekrar=new int[3];
     String sehird="";
     String sehir="";
- String [] sehirs = {"Adana","Adıyaman", "Afyon", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin",
+    String [] sehirs = {"Adana","Adıyaman", "Afyon", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin",
             "Aydın", "Balıkesir","Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale",
             "Çankırı", "Çorum","Denizli","Diyarbakır", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir",
             "Gaziantep", "Giresun","Gümüşhane", "Hakkari", "Hatay", "Isparta", "Mersin", "İstanbul", "İzmir",
@@ -80,30 +80,28 @@ public class Activity2 extends AppCompatActivity  {
                }
             }
         }.start();
+        
         // 81 il için rastgele indis ataması
         rand1= (int) (Math.random()*81);
 
         // ekrandaki alt çizgi+boşlukların şehir boyutuna göre dizilmesi
-              for (int i = 0; i < sehirs[rand1].length(); i++) {
-                  sehird = sehird + "_ ";
-
-              t2.setText(sehird);
-
-          }
-          sehir=sehirs[rand1];
+        for (int i = 0; i < sehirs[rand1].length(); i++) {
+            sehird = sehird + "_ ";
+            t2.setText(sehird);
+        }
+        sehir=sehirs[rand1];
 
         // Şehrin kelime uzunluğuna göre harf alma hakkı tanınması
         if(sehir.length()<20) {
             hak=3;
         }
-
         if(sehir.length()<8) {
             hak=2;
         }
         if(sehir.length()<6) {
             hak=1;
         }
-
+        
         t5.setText("Kalan hakkınız : "+String.valueOf(hak));
         ses2=MediaPlayer.create(Activity2.this,R.raw.s2);
         ses2.start();
@@ -137,10 +135,11 @@ public class Activity2 extends AppCompatActivity  {
                         }
 
                     } while (n == 0);
-
                     sehird = "";
+                    
                     // sehirdeki rastgele seçilen karakterin yanması
                     for (int i = 0; i < sehirs[rand1].length(); i++) {
+                        
                         // şehirdeki her indis tekrar dizisindeki elemanlarla karşılaştırılır
                         for (int j = 0; j < k; j++) {
                             // elemanlar eşleştiğinde ekrana o karakter basılır
@@ -148,7 +147,6 @@ public class Activity2 extends AppCompatActivity  {
                                 sehird = sehird + String.valueOf(sehir.charAt(i)) + " ";
                                 t = 1;
                                 break;
-
                             }
                             t = 0;
                         }
@@ -158,6 +156,7 @@ public class Activity2 extends AppCompatActivity  {
                         }
                     }
                     t2.setText(sehird);
+                    
                     // dene mekanizmaları ile adam asmaca figürleri hareket eder .
                     if(dene==0){
                     img2.setImageResource(R.drawable.b);
@@ -168,9 +167,6 @@ public class Activity2 extends AppCompatActivity  {
                     if(dene==2){
                         img2.setImageResource(R.drawable.d);
                     }
-
-
-
                     dene++;
                     puan=puan-100;
                 }
@@ -179,12 +175,9 @@ public class Activity2 extends AppCompatActivity  {
                     Toast.makeText(getApplicationContext(), hak+" Adet hakkınız tükenmiştir", Toast.LENGTH_SHORT).show();
                 }
                 t8.setText("Puan: "+puan);
-
-
             }
-
          });
-
+        
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -199,8 +192,6 @@ public class Activity2 extends AppCompatActivity  {
                   m=0;
                   ses2.pause();
                   startActivity(sayfa3);
-
-
               }
                 puan=puan-200;
               // dene mekanizmalarıyla adam asmaca figürlerinin hareket etmesi
@@ -215,7 +206,6 @@ public class Activity2 extends AppCompatActivity  {
                 }
                 // adam asımında olacaklar
                 if(dene==3){
-
                     sayfa3 = new Intent(Activity2.this,Activity3.class);
                     sayfa3.putExtra("sonuc",0);
                     sayfa3.putExtra("sehir",sehir);
@@ -223,19 +213,10 @@ public class Activity2 extends AppCompatActivity  {
                     m=0;
                     ses2.pause();
                     startActivity(sayfa3);
-
-
                 }
-
                 t8.setText("Puan: "+puan);
                 dene++;
-
             }
-
         });
-
-
-
-
     }
 }
